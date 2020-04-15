@@ -27,10 +27,9 @@
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
 
         <!--后续实现时再打开此配置-->
-        <!--
         <property name="mapperLocations" value="classpath:com/chayedan/health/mapper/*.xml"/>
         <property name="typeAliasesPackage" value="com.chayedan.health.pojo"/>
-        -->
+
 
         <!-- 分页插件pagehelper -->
         <property name="plugins">
