@@ -4,6 +4,8 @@ import com.chayedan.health.entity.PageResult;
 import com.chayedan.health.entity.QueryPageBean;
 import com.chayedan.health.pojo.CheckItem;
 
+import java.util.List;
+
 /**
  * @author chayedan666
  * @version 1.0
@@ -38,5 +40,12 @@ public interface CheckItemService {
      * 编辑项目
      * @param checkItem
      */
-    public void edit(CheckItem checkItem);
+    void edit(CheckItem checkItem);
+
+    /**
+     * 查询所有检查项
+     * @return
+     */
+    List<CheckItem> findAll();
+
 }

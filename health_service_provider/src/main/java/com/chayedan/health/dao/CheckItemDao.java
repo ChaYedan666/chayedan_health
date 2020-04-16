@@ -5,6 +5,8 @@ import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * @author chayedan666
  * @version 1.0
@@ -50,4 +52,6 @@ public interface CheckItemDao {
      * @param checkItem
      */
     void edit(CheckItem checkItem);
+
+    List<CheckItem> findAll();
 }

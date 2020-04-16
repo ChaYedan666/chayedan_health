@@ -26,4 +26,7 @@
     <select id="findById" resultType="com.chayedan.health.pojo.CheckItem" parameterType="integer">
         SELECT * FROM t_checkitem WHERE id = #{id}
     </select>
+    <select id="findAll" resultType="com.chayedan.health.pojo.CheckItem">
+        SELECT * FROM t_checkitem
+    </select>
 </mapper>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author chayedan666
@@ -80,6 +81,16 @@ public class CheckItemController {
         } catch (Exception e) {
             e.printStackTrace();
             return new Result(false,MessageConst.EDIT_CHECKITEM_FAIL);
+        }
+    }
+    @RequestMapping("/findAll")
+    public Result findAll(){
+        try {
+            List<CheckItem> checkItems = checkItemService.findAll();
+            return new Result(true,MessageConst.QUERY_CHECKITEM_SUCCESS,checkItems);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,MessageConst.QUERY_CHECKITEM_FAIL);
         }
     }
 
