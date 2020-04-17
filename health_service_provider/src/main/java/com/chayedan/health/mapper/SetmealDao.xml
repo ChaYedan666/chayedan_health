@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chayedan.health.dao.SetmealDao">
+    <insert id="add">
+        INSERT t_setmeal
+        VALUES (null, #{name}, #{code}, #{helpCode},#{sex},#{age},#{price}, #{remark}, #{attention}, #{img})
+        <selectKey resultType="integer" order="AFTER" keyProperty="id">
+            Select LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    <insert id="addSetmealAndCheckGroup">
+        INSERT into t_setmeal_checkgroup
+        VALUES (#{setmeal_id},#{checkgroup_id})
+    </insert>
+    <select id="selectByCondition" resultType="com.chayedan.health.pojo.Setmeal">
+        SELECT * FROM t_setmeal
+        <if test=" queryString!=null and queryString.length > 0">
+            WHERE code LIKE CONCAT('%',#{queryString},'%') or name LIKE CONCAT('%',#{queryString},'%') or helpCode like CONCAT('%',#{queryString},'%')
+        </if>
+    </select>
+</mapper>

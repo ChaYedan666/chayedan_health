@@ -43,6 +43,7 @@
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.7.25</slf4j.version>
         <lombok.version>1.18.8</lombok.version>
+
     </properties>
 
     <dependencyManagement>
@@ -166,7 +167,7 @@
             <dependency>
                 <groupId>commons-net</groupId>
                 <artifactId>commons-net</artifactId>
-                <version>${commons-net.version}</version>
+                <version>3.1</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
@@ -177,7 +178,7 @@
             <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
-                <version>${jedis.version}</version>
+                <version>2.9.0</version>
             </dependency>
             <!--log4j-->
             <dependency>
@@ -202,6 +203,14 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+
+            <!--qiniu-->
+            <dependency>
+                <groupId>com.qiniu</groupId>
+                <artifactId>qiniu-java-sdk</artifactId>
+                <version>7.2.0</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>

@@ -97,4 +97,19 @@ public class CheckGroupController {
             return new Result(false,MessageConst.EDIT_CHECKGROUP_FAIL);
         }
     }
+
+    /**
+     * 获取所有检查组列表
+     * @return
+     */
+    @RequestMapping("/findAll")
+    public Result findAll(){
+        try{
+            List<CheckGroup> checkGroupList = checkGroupService.findAll();
+            return new Result(true,MessageConst.QUERY_CHECKGROUP_SUCCESS,checkGroupList);
+        }catch(Exception e){
+            e.printStackTrace();
+            return new Result(false,MessageConst.QUERY_CHECKGROUP_FAIL);
+        }
+    }
 }

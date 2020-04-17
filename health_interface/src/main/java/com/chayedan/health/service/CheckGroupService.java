@@ -48,4 +48,10 @@ public interface CheckGroupService {
      * @param checkItemIds 检查项选择列表
      */
     void edit(CheckGroup checkGroup,Integer[] checkItemIds);
+
+    /**
+     * 查询所有检查组
+     * @return
+     */
+    List<CheckGroup> findAll();
 }
