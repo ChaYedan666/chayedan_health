@@ -4,6 +4,7 @@ import com.chayedan.health.pojo.Setmeal;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,4 +34,17 @@ public interface SetmealDao {
      * @return
      */
     Page<Setmeal> selectByCondition(@Param("queryString") String queryString);
+
+    /**
+     * 获取所有套餐列表
+     * @return
+     */
+    List<Setmeal> findAll();
+
+    /**
+     * 基于ID获取套餐详情
+     * @param id 套餐ID
+     * @return
+     */
+    Setmeal findById(Integer id);
 }

@@ -3,6 +3,8 @@ package com.chayedan.health.service;
 import com.chayedan.health.entity.PageResult;
 import com.chayedan.health.pojo.Setmeal;
 
+import java.util.List;
+
 /**
  * @author chayedan666
  * @version 1.0
@@ -26,4 +28,17 @@ public interface SetmealService {
      * @return
      */
     PageResult pageQuery(Integer currentPage, Integer pageSize, String queryString);
+
+    /**
+     * 获取所有套餐的列表
+     * @return
+     */
+    List<Setmeal> findAll();
+
+    /**
+     * 基于ID，获取套餐详情
+     * @param id
+     * @return
+     */
+    Setmeal findById(Integer id);
 }
