@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chayedan.health.dao.MemberDao">
+    <insert id="add">
+        INSERT INTO t_member
+        VALUES (null,#{fileNumber},#{name},#{sex},#{idCard},#{phoneNumber},
+        #{regTime},#{password},#{email},#{birthday},#{remark})
+        <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+            select LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    <select id="findByTelephone" resultType="com.chayedan.health.pojo.Member">
+        SELECT * from t_member WHERE phoneNumber = #{telephone}
+    </select>
+
+</mapper>

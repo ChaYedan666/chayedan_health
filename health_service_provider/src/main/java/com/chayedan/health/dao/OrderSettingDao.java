@@ -39,4 +39,17 @@ public interface OrderSettingDao {
      */
     List<OrderSetting> getOrderSettingByMonth(Map date);
 
+    /**
+     * 基于预约日期获取预约设置
+     * @param orderDate
+     * @return
+     */
+    OrderSetting findByOrderDate(Date orderDate);
+
+    /**
+     * 更新预约设置天数
+     * @param orderSetting
+     */
+    void editReservationsByOrderDate(OrderSetting orderSetting);
+
 }

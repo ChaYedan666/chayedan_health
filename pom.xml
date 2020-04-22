@@ -17,6 +17,7 @@
         <module>health_oms_web</module>
         <module>health_mobile_backend</module>
         <module>health_mobile_web</module>
+        <module>health_security</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -221,6 +222,16 @@
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
                 <version>3.14</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>5.0.5.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>5.0.5.RELEASE</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

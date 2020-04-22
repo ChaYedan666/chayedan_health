@@ -10,11 +10,25 @@
         SET number = #{number},reservations = #{reservations}
         where orderDate = #{orderDate}
     </update>
+    <!--更新已预约人数-->
+    <update id="editReservationsByOrderDate">
+        UPDATE t_ordersetting
+        SET reservations = #{reservations}
+        where orderDate = #{orderDate}
+    </update>
+
     <select id="countByOrderDate" resultType="java.lang.Long">
         SELECT count(*) FROM t_ordersetting where orderDate = #{orderDate}
     </select>
     <select id="getOrderSettingByMonth" resultType="com.chayedan.health.pojo.OrderSetting">
         SELECT * from t_ordersetting WHERE orderDate BETWEEN #{dateBegin} and #{dateEnd}
     </select>
+    <!--根据日期查询预约设置信息-->
+    <select id="findByOrderDate" resultType="com.chayedan.health.pojo.OrderSetting">
+        SELECT * FROM t_ordersetting WHERE orderDate = #{orderDate}
+    </select>
+
+
+
 
 </mapper>

@@ -33,7 +33,7 @@
             <div class="contentBox">
                 <div class="card">
                     <div class="">
-                        <img :src="'http://pqjroc654.bkt.clouddn.com/'+setmeal.img" width="100%" height="100%" />
+                        <img :src="'http://q8vksx86v.bkt.clouddn.com/'+setmeal.img" width="100%" height="100%" />
                     </div>
                     <div class="project-text">
                         <h4 class="tit">{{setmeal.name}}</h4>
@@ -101,6 +101,7 @@
             var vue = new Vue({
                 el:'#app',
                 data:{
+                    mobile_backend_url:"http://localhost:7002/mobile",
                     setmeal:{},//套餐信息
                     orderInfo:{
                         setmealId:id,
@@ -119,7 +120,7 @@
                         }
                         validateCodeButton = $("#validateCodeButton")[0];
                         clock = window.setInterval(doLoop, 1000); //一秒执行一次
-                        axios.post("/validateCode/send4Order.do?telephone=" + telephone).then((response) => {
+                        axios.get(this.mobile_backend_url+"/validateCode/send4Order.do?telephone=" + telephone).then((response) => {
                             if(!response.data.flag){
                                 //验证码发送失败
                                 this.$message.error('验证码发送失败，请检查手机号输入是否正确');
@@ -133,7 +134,7 @@
                             this.$message.error('身份证号码输入错误，请重新输入');
                             return ;
                         }
-                        axios.post("/order/submit.do",this.orderInfo).then((response) => {
+                        axios.post(this.mobile_backend_url+"/order/submit.do",this.orderInfo).then((response) => {
                             if(response.data.flag){
                                 //预约成功，跳转到预约成功页面
                                 window.location.href="orderSuccess.html?orderId=" + response.data.data.id;
@@ -145,7 +146,7 @@
                     }
                 },
                 mounted(){
-                    axios.post("/setmeal/findById.do?id=" + id).then((response) => {
+                    axios.post(this.mobile_backend_url+"/setmeal/findById.do?id=" + id).then((response) => {
                         this.setmeal = response.data.data;
                     });
                 }
