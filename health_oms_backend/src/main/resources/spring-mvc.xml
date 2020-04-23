@@ -12,10 +12,15 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <!--自动扫包-->
-    <context:component-scan base-package="com.chayedan.health.controller"/>
+    <context:component-scan base-package="com.chayedan.health"/>
     <!--支持跨域-->
     <mvc:cors>
-        <mvc:mapping path="/**"/>
+        <mvc:mapping path="/**"
+                     allowed-origins="http://localhost:8080"
+                     allowed-methods="GET, PUT,OPTIONS,POST,DELETE"
+                     allow-credentials="true"
+                     max-age="3600"
+        />
     </mvc:cors>
     <!--注解驱动
     当配置了mvc:annotation-driven/后，启用注解驱动。
@@ -31,7 +36,7 @@
     <!--dubbo配置-->
     <dubbo:application name="dubbo-oms-consumer"/>
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
-    <dubbo:annotation package="com.chayedan.health.controller"/>
+    <dubbo:annotation package="com.chayedan.health"/>
     <!--文件上传组件-->
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
